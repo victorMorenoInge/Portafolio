@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Victor Andrés Moreno Sierra — AI & Software Engineer</title>
+<meta name="description" content="Ingeniero Electrónico especializado en Inteligencia Artificial, Computer Vision y Ciberseguridad. Disponible para roles de AI Engineer, ML Engineer y Software Engineer en Colombia y remoto.">
+<meta name="keywords" content="AI Engineer, Machine Learning, Computer Vision, Software Engineer, Ciberseguridad, Colombia, Python, Deep Learning">
+<meta property="og:title" content="Victor Andrés Moreno Sierra — AI & Software Engineer">
+<meta property="og:description" content="Ingeniero Electrónico | Investigador en IA | Especialista en Computer Vision y Ciberseguridad">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#050B18;
+  --bg2:#080F20;
+  --bg3:#0D1628;
+  --surface:#111827;
+  --surface2:#1a2540;
+  --border:#1e2d4a;
+  --border2:#2a3f66;
+  --cyan:#00D4FF;
+  --cyan-dim:#00a8cc;
+  --violet:#7C3AED;
+  --violet-dim:#6025c0;
+  --text:#F0F4FF;
+  --text2:#94a3b8;
+  --text3:#64748b;
+  --mono:'JetBrains Mono',monospace;
+  --sans:'Space Grotesk',sans-serif;
+  --body:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+a{color:var(--cyan);text-decoration:none;transition:color .2s}
+a:hover{color:#fff}
+h1,h2,h3,h4{font-family:var(--sans)}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(5,11,24,.85);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:0 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+}
+.nav-logo{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:1.1rem;
+  color:var(--text);
+  letter-spacing:-.02em;
+}
+.nav-logo span{color:var(--cyan)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  font-size:.85rem;
+  font-weight:500;
+  color:var(--text2);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--cyan)}
+.nav-cta{
+  background:transparent;
+  border:1px solid var(--cyan);
+  color:var(--cyan);
+  padding:.45rem 1.1rem;
+  border-radius:6px;
+  font-family:var(--sans);
+  font-size:.85rem;
+  font-weight:500;
+  cursor:pointer;
+  transition:all .2s;
+}
+.nav-cta:hover{background:var(--cyan);color:#000}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:8rem 2rem 4rem;
+  position:relative;
+  overflow:hidden;
+}
+#hero-canvas{
+  position:absolute;inset:0;
+  z-index:0;
+  opacity:.35;
+}
+.hero-grid{
+  max-width:1200px;
+  margin:0 auto;
+  width:100%;
+  display:grid;
+  grid-template-columns:1fr 340px;
+  gap:4rem;
+  align-items:center;
+  position:relative;z-index:1;
+}
+.hero-eyebrow{
+  font-family:var(--mono);
+  font-size:.8rem;
+  color:var(--cyan);
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  margin-bottom:1.2rem;
+}
+.hero-eyebrow::before{
+  content:'';
+  display:inline-block;
+  width:40px;height:1px;
+  background:var(--cyan);
+  vertical-align:middle;
+  margin-right:.8rem;
+}
+h1.hero-title{
+  font-size:clamp(2.6rem,5vw,4.2rem);
+  font-weight:700;
+  line-height:1.05;
+  letter-spacing:-.03em;
+  margin-bottom:1rem;
+}
+h1.hero-title .name{
+  display:block;
+  background:linear-gradient(135deg,#fff 0%,var(--cyan) 60%,var(--violet) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-subtitle{
+  font-size:1.15rem;
+  color:var(--text2);
+  max-width:520px;
+  margin-bottom:1.8rem;
+  line-height:1.6;
+}
+.hero-tags{
+  display:flex;flex-wrap:wrap;gap:.5rem;
+  margin-bottom:2.5rem;
+}
+.tag{
+  font-family:var(--mono);
+  font-size:.73rem;
+  padding:.3rem .75rem;
+  border:1px solid var(--border2);
+  border-radius:20px;
+  color:var(--text2);
+  background:rgba(0,212,255,.04);
+}
+.tag.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,212,255,.08)}
+.hero-btns{display:flex;flex-wrap:wrap;gap:1rem}
+.btn-primary{
+  background:var(--cyan);
+  color:#000;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:.9rem;
+  padding:.7rem 1.6rem;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  transition:all .2s;
+  display:inline-flex;align-items:center;gap:.5rem;
+}
+.btn-primary:hover{background:#fff;color:#000;transform:translateY(-2px)}
+.btn-secondary{
+  background:transparent;
+  color:var(--text);
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:.9rem;
+  padding:.7rem 1.6rem;
+  border-radius:8px;
+  border:1px solid var(--border2);
+  cursor:pointer;
+  transition:all .2s;
+  display:inline-flex;align-items:center;gap:.5rem;
+}
+.btn-secondary:hover{border-color:var(--text2);background:var(--surface);transform:translateY(-2px)}
+.hero-photo-wrap{
+  position:relative;
+  display:flex;justify-content:center;
+}
+.hero-photo-ring{
+  width:280px;height:280px;
+  border-radius:50%;
+  border:2px solid var(--border2);
+  background:var(--surface);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero-photo-ring::before{
+  content:'';
+  position:absolute;inset:-2px;
+  border-radius:50%;
+  background:conic-gradient(var(--cyan),var(--violet),var(--cyan));
+  z-index:-1;
+  animation:spin 8s linear infinite;
+}
+.photo-placeholder{
+  font-family:var(--sans);
+  font-size:5rem;
+  font-weight:700;
+  color:var(--cyan);
+  opacity:.5;
+  user-select:none;
+}
+.hero-status{
+  position:absolute;
+  bottom:20px;left:50%;transform:translateX(-50%);
+  background:var(--surface);
+  border:1px solid var(--border2);
+  border-radius:20px;
+  padding:.35rem .9rem;
+  display:flex;align-items:center;gap:.5rem;
+  font-size:.78rem;
+  color:var(--text2);
+  white-space:nowrap;
+}
+.status-dot{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:#22c55e;
+  animation:pulse 2s infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ── SECTIONS ── */
+section{padding:6rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.section-label{
+  font-family:var(--mono);
+  font-size:.75rem;
+  color:var(--cyan);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:.8rem;
+}
+.section-title{
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:700;
+  letter-spacing:-.025em;
+  margin-bottom:1.2rem;
+}
+.section-sub{
+  font-size:1rem;
+  color:var(--text2);
+  max-width:580px;
+  margin-bottom:3rem;
+}
+.divider{
+  width:60px;height:2px;
+  background:linear-gradient(90deg,var(--cyan),var(--violet));
+  margin-bottom:3rem;
+  border-radius:2px;
+}
+
+/* ── ABOUT ── */
+#about{background:var(--bg2)}
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:start;
+}
+.about-text p{
+  color:var(--text2);
+  margin-bottom:1.2rem;
+  font-size:.97rem;
+  line-height:1.8;
+}
+.about-text p strong{color:var(--text)}
+.about-text .highlight{
+  color:var(--cyan);
+  font-weight:500;
+}
+.stats-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+}
+.stat-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.4rem;
+  transition:border-color .2s,transform .2s;
+}
+.stat-card:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.stat-number{
+  font-family:var(--sans);
+  font-size:2.2rem;
+  font-weight:700;
+  color:var(--cyan);
+  line-height:1;
+  margin-bottom:.3rem;
+}
+.stat-label{
+  font-size:.8rem;
+  color:var(--text2);
+  line-height:1.4;
+}
+.pillars{
+  margin-top:2rem;
+  display:flex;flex-direction:column;gap:.8rem;
+}
+.pillar{
+  display:flex;align-items:center;gap:.8rem;
+  font-size:.88rem;
+  color:var(--text2);
+}
+.pillar-icon{
+  width:36px;height:36px;
+  border-radius:8px;
+  background:rgba(0,212,255,.08);
+  border:1px solid rgba(0,212,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;
+  flex-shrink:0;
+}
+
+/* ── SKILLS ── */
+#skills{background:var(--bg)}
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5rem;
+}
+.skill-cat{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.5rem;
+  transition:border-color .2s;
+}
+.skill-cat:hover{border-color:var(--border2)}
+.skill-cat-header{
+  display:flex;align-items:center;gap:.7rem;
+  margin-bottom:1.2rem;
+}
+.skill-cat-icon{
+  width:32px;height:32px;
+  border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;
+}
+.skill-cat-title{
+  font-family:var(--sans);
+  font-size:.85rem;
+  font-weight:600;
+  color:var(--text);
+  letter-spacing:.03em;
+  text-transform:uppercase;
+}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.45rem}
+.skill-pill{
+  font-family:var(--mono);
+  font-size:.72rem;
+  padding:.28rem .7rem;
+  border-radius:20px;
+  border:1px solid var(--border2);
+  color:var(--text2);
+  background:rgba(255,255,255,.02);
+  transition:all .15s;
+}
+.skill-pill:hover{border-color:var(--cyan);color:var(--cyan)}
+.skill-pill.primary{border-color:rgba(0,212,255,.3);color:var(--cyan);background:rgba(0,212,255,.06)}
+
+/* ── PROJECTS ── */
+#projects{background:var(--bg2)}
+.projects-list{display:flex;flex-direction:column;gap:2rem}
+.project-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:2rem 2.5rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  transition:border-color .2s,box-shadow .2s;
+}
+.project-card:hover{
+  border-color:var(--border2);
+  box-shadow:0 0 40px rgba(0,212,255,.05);
+}
+.project-card.featured{border-color:rgba(0,212,255,.25)}
+.project-badge{
+  font-family:var(--mono);
+  font-size:.68rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:.25rem .7rem;
+  border-radius:20px;
+  display:inline-block;
+  margin-bottom:1rem;
+}
+.badge-cv{background:rgba(0,212,255,.1);color:var(--cyan);border:1px solid rgba(0,212,255,.3)}
+.badge-research{background:rgba(124,58,237,.1);color:#a78bfa;border:1px solid rgba(124,58,237,.3)}
+.badge-web{background:rgba(34,197,94,.1);color:#4ade80;border:1px solid rgba(34,197,94,.3)}
+.project-title{
+  font-size:1.35rem;
+  font-weight:700;
+  margin-bottom:.6rem;
+  letter-spacing:-.02em;
+}
+.project-desc{
+  font-size:.9rem;
+  color:var(--text2);
+  margin-bottom:1.2rem;
+  line-height:1.7;
+}
+.project-stack{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem}
+.project-links{display:flex;gap:.8rem}
+.project-link{
+  font-family:var(--sans);
+  font-size:.8rem;
+  font-weight:500;
+  padding:.4rem 1rem;
+  border-radius:6px;
+  border:1px solid var(--border2);
+  color:var(--text2);
+  transition:all .2s;
+  cursor:pointer;
+}
+.project-link.primary-link{border-color:var(--cyan);color:var(--cyan)}
+.project-link:hover{background:var(--surface2);color:var(--text)}
+.project-details{
+  display:flex;flex-direction:column;gap:1rem;
+}
+.detail-block{}
+.detail-label{
+  font-family:var(--mono);
+  font-size:.68rem;
+  color:var(--cyan);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:.4rem;
+}
+.detail-text{
+  font-size:.85rem;
+  color:var(--text2);
+  line-height:1.6;
+}
+.impact-metric{
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  background:rgba(34,197,94,.08);
+  border:1px solid rgba(34,197,94,.2);
+  border-radius:6px;
+  padding:.3rem .7rem;
+  font-size:.8rem;
+  color:#4ade80;
+  margin:.2rem .2rem 0 0;
+}
+
+/* ── CERTIFICATIONS ── */
+#certifications{background:var(--bg)}
+.certs-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:1.5rem;
+}
+.cert-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.8rem;
+  display:flex;gap:1.2rem;
+  align-items:flex-start;
+  transition:border-color .2s;
+}
+.cert-card:hover{border-color:var(--border2)}
+.cert-card.featured{border-color:rgba(0,212,255,.3)}
+.cert-logo{
+  width:52px;height:52px;
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;
+  flex-shrink:0;
+}
+.cert-body{}
+.cert-issuer{
+  font-family:var(--mono);
+  font-size:.7rem;
+  color:var(--text3);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  margin-bottom:.3rem;
+}
+.cert-name{
+  font-family:var(--sans);
+  font-size:1rem;
+  font-weight:600;
+  margin-bottom:.5rem;
+  line-height:1.3;
+}
+.cert-desc{
+  font-size:.82rem;
+  color:var(--text2);
+  line-height:1.6;
+}
+
+/* ── EXPERIENCE ── */
+#experience{background:var(--bg2)}
+.timeline{display:flex;flex-direction:column;gap:0}
+.timeline-item{
+  display:grid;
+  grid-template-columns:140px 1px 1fr;
+  gap:0 2rem;
+  padding-bottom:2.5rem;
+}
+.timeline-date{
+  font-family:var(--mono);
+  font-size:.78rem;
+  color:var(--text3);
+  padding-top:.2rem;
+  text-align:right;
+  line-height:1.4;
+}
+.timeline-line{
+  background:var(--border2);
+  position:relative;
+}
+.timeline-dot{
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--cyan);
+  border:2px solid var(--bg2);
+  position:absolute;
+  top:.2rem;
+  left:50%;transform:translateX(-50%);
+  box-shadow:0 0 8px rgba(0,212,255,.4);
+}
+.timeline-content{padding-top:.1rem}
+.timeline-role{
+  font-family:var(--sans);
+  font-size:1.05rem;
+  font-weight:600;
+  margin-bottom:.2rem;
+}
+.timeline-org{
+  font-size:.85rem;
+  color:var(--cyan);
+  margin-bottom:.8rem;
+}
+.timeline-body{
+  font-size:.88rem;
+  color:var(--text2);
+  line-height:1.7;
+}
+.skills-transfer{
+  display:flex;flex-wrap:wrap;gap:.4rem;
+  margin-top:.8rem;
+}
+
+/* ── GITHUB ── */
+#github{background:var(--bg)}
+.github-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+}
+.github-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.8rem;
+}
+.repo-card{
+  margin-bottom:1rem;
+  padding-bottom:1rem;
+  border-bottom:1px solid var(--border);
+}
+.repo-card:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.repo-name{
+  font-family:var(--mono);
+  font-size:.9rem;
+  color:var(--cyan);
+  font-weight:500;
+  margin-bottom:.3rem;
+}
+.repo-desc{
+  font-size:.8rem;
+  color:var(--text2);
+  margin-bottom:.5rem;
+  line-height:1.5;
+}
+.repo-meta{display:flex;gap:1rem}
+.repo-lang,.repo-stars{
+  font-family:var(--mono);
+  font-size:.72rem;
+  color:var(--text3);
+  display:flex;align-items:center;gap:.3rem;
+}
+.lang-dot{width:8px;height:8px;border-radius:50%}
+.contrib-grid{
+  display:grid;
+  grid-template-columns:repeat(52,1fr);
+  gap:2px;
+  margin-top:1rem;
+}
+.contrib-cell{
+  aspect-ratio:1;
+  border-radius:2px;
+  background:var(--border);
+}
+.contrib-cell.l1{background:rgba(0,212,255,.2)}
+.contrib-cell.l2{background:rgba(0,212,255,.4)}
+.contrib-cell.l3{background:rgba(0,212,255,.6)}
+.contrib-cell.l4{background:var(--cyan)}
+.gh-stat{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:.6rem 0;
+  border-bottom:1px solid var(--border);
+  font-size:.85rem;
+}
+.gh-stat:last-child{border-bottom:none}
+.gh-stat-label{color:var(--text2)}
+.gh-stat-val{
+  font-family:var(--mono);
+  font-weight:500;
+  color:var(--cyan);
+}
+
+/* ── CONTACT ── */
+#contact{
+  background:var(--bg2);
+  text-align:center;
+}
+.contact-inner{max-width:640px;margin:0 auto}
+.contact-heading{
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:700;
+  letter-spacing:-.03em;
+  margin-bottom:1rem;
+}
+.contact-sub{
+  font-size:1rem;
+  color:var(--text2);
+  margin-bottom:2.5rem;
+  line-height:1.7;
+}
+.contact-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:1rem;
+  margin-bottom:3rem;
+}
+.contact-link{
+  display:flex;align-items:center;gap:.6rem;
+  padding:.65rem 1.4rem;
+  border-radius:8px;
+  border:1px solid var(--border2);
+  font-family:var(--sans);
+  font-size:.88rem;
+  font-weight:500;
+  color:var(--text2);
+  transition:all .2s;
+  background:var(--surface);
+}
+.contact-link:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,212,255,.05)}
+.contact-link .icon{font-size:1rem}
+.availability{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:rgba(34,197,94,.08);
+  border:1px solid rgba(34,197,94,.25);
+  border-radius:20px;
+  padding:.45rem 1.1rem;
+  font-size:.82rem;
+  color:#4ade80;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--bg);
+  border-top:1px solid var(--border);
+  padding:2rem;
+  text-align:center;
+  font-family:var(--mono);
+  font-size:.72rem;
+  color:var(--text3);
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:2.5rem}
+  .hero-photo-wrap{order:-1}
+  .about-grid,.project-card,.github-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .timeline-item{grid-template-columns:90px 1px 1fr;gap:0 1rem}
+}
+@media(max-width:600px){
+  section{padding:4rem 1.2rem}
+  nav{padding:0 1.2rem}
+  .project-card{padding:1.5rem}
+  .timeline-item{grid-template-columns:0 0 1fr}
+  .timeline-date,.timeline-line{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <div class="nav-logo">VAMS<span>.</span>Moreno</div>
+  <ul class="nav-links">
+    <li><a href="#about">Sobre mí</a></li>
+    <li><a href="#skills">Stack</a></li>
+    <li><a href="#projects">Proyectos</a></li>
+    <li><a href="#certifications">Certificaciones</a></li>
+    <li><a href="#experience">Experiencia</a></li>
+    <li><a href="#github">GitHub</a></li>
+  </ul>
+  <a href="#contact"><button class="nav-cta">Contactar</button></a>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-grid">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Disponible para oportunidades</p>
+      <h1 class="hero-title">
+        Construyo sistemas<br>de IA que resuelven<br>
+        <span class="name">problemas reales.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Ingeniero Electrónico con foco en <strong>Inteligencia Artificial</strong>, 
+        <strong>Computer Vision</strong> y <strong>Ciberseguridad</strong>. 
+        Transformo investigación aplicada en productos funcionales.
+      </p>
+      <div class="hero-tags">
+        <span class="tag active">AI Engineer</span>
+        <span class="tag active">ML Engineer</span>
+        <span class="tag active">Computer Vision</span>
+        <span class="tag">Cybersecurity</span>
+        <span class="tag">Backend Dev</span>
+        <span class="tag">Full Stack</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#projects"><button class="btn-primary">↓ Ver proyectos</button></a>
+        <a href="mailto:inge.victor.moreno.2003@gmail.com"><button class="btn-secondary">✉ Contactarme</button></a>
+        <a href="https://drive.google.com/file/d/1pd13ml-unfagtj6S6K39kkri2dE6cCCE/view?usp=sharing" target="_blank"><button class="btn-secondary">⬇ Descargar CV</button></a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-ring">
+        <div class="photo-placeholder"><img src="src/Vic.jpg" alt="Victor Moreno" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+        <!-- Reemplaza este div con: <img src="tu-foto.jpg" alt="Victor Moreno" style="width:100%;height:100%;object-fit:cover;border-radius:50%"> -->
+      </div>
+      <div class="hero-status">
+        <div class="status-dot"></div>
+        Disponible · Colombia / Remoto
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Sobre mí</p>
+      <h2 class="section-title">Ingeniero. Investigador. Constructor.</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          Soy <strong>Victor Andrés Moreno Sierra</strong>, Ingeniero Electrónico con una orientación clara hacia la intersección entre <span class="highlight">inteligencia artificial</span>, el desarrollo de software y la ciberseguridad. Mi trayectoria combina rigor académico, investigación aplicada y experiencia docente.
+        </p>
+        <p>
+          Más allá de escribir código, me interesa entender <strong>por qué los sistemas fallan</strong> y cómo diseñar soluciones que escalen. He trabajado en automatización agronómica con electrónica y programación embebida, investigado modelos generativos para imágenes médicas, y desarrollado herramientas de visión por computador accesibles para la comunidad.
+        </p>
+        <p>
+          Como docente de sistemas, aprendí que la mejor forma de dominar un tema es enseñarlo. Ese principio guía mi enfoque técnico: no basta con hacer que algo funcione; hay que poder explicar por qué funciona y cómo mejorarlo.
+        </p>
+        <p>
+          Actualmente busco mi primera posición como <span class="highlight">AI/ML Engineer</span> o <span class="highlight">Software Engineer</span> en una startup tecnológica o laboratorio de investigación donde pueda combinar trabajo de alto impacto con crecimiento técnico acelerado.
+        </p>
+        <div class="pillars">
+          <div class="pillar"><div class="pillar-icon">🧠</div>Investigación en IA generativa y visión por computador</div>
+          <div class="pillar"><div class="pillar-icon">🔐</div>Seguridad de sistemas con certificación Google Cybersecurity</div>
+          <div class="pillar"><div class="pillar-icon">⚙️</div>Automatización e integración de hardware con software</div>
+          <div class="pillar"><div class="pillar-icon">🎓</div>Comunicación técnica y liderazgo pedagógico</div>
+        </div>
+      </div>
+      <div class="stats-grid reveal">
+        <div class="stat-card">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Proyectos de IA en producción o investigación</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1yr</div>
+          <div class="stat-label">Docencia en tecnología y sistemas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">8+</div>
+          <div class="stat-label">Áreas técnicas de dominio activo</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Comprometido con aprendizaje continuo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Stack tecnológico</p>
+      <h2 class="section-title">Tecnologías y herramientas</h2>
+      <div class="divider"></div>
+      <p class="section-sub">Ecosistema técnico orientado a sistemas de IA, desarrollo backend y seguridad aplicada.</p>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-cat">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon" style="background:rgba(0,212,255,.1)">💻</div>
+          <span class="skill-cat-title">Lenguajes</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-pill primary">Python</span>
+          <span class="skill-pill primary">JavaScript</span>
+          <span class="skill-pill">TypeScript</span>
+          <span class="skill-pill">C++</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">Bash</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon" style="background:rgba(124,58,237,.1)">🤖</div>
+          <span class="skill-cat-title">Machine Learning / AI</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-pill primary">PyTorch</span>
+          <span class="skill-pill primary">TensorFlow</span>
+          <span class="skill-pill">Keras</span>
+          <span class="skill-pill primary">OpenCV</span>
+          <span class="skill-pill">MediaPipe</span>
+          <span class="skill-pill">Scikit-learn</span>
+          <span class="skill-pill">Hugging Face</span>
+          <span class="skill-pill">GANs</span>
+          <span class="skill-pill">Diffusion Models</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon" style="background:rgba(34,197,94,.1)">🌐</div>
+          <span class="skill-cat-title">Frameworks web</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-pill primary">FastAPI</span>
+          <span class="skill-pill">Django</span>
+          <span class="skill-pill">Flask</span>
+          <span class="skill-pill primary">React</span>
+          <span class="skill-pill">Node.js</span>
+          <span class="skill-pill">TensorFlow.js</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon" style="background:rgba(251,191,36,.1)">🗄️</div>
+          <span class="skill-cat-title">Bases de datos</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-pill">PostgreSQL</span>
+          <span class="skill-pill">MongoDB</span>
+          <span class="skill-pill">Redis</span>
+          <span class="skill-pill">SQLite</span>
+          <span class="skill-pill">Firebase</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon" style="background:rgba(239,68,68,.1)">☁️</div>
+          <span class="skill-cat-title">Cloud y DevOps</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-pill">Google Cloud</span>
+          <span class="skill-pill">AWS (fundamentos)</span>
+          <span class="skill-pill primary">Docker</span>
+          <span class="skill-pill">Git / GitHub</span>
+          <span class="skill-pill">CI/CD</span>
+          <span class="skill-pill">Linux</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon" style="background:rgba(239,68,68,.08)">🔐</div>
+          <span class="skill-cat-title">Ciberseguridad</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-pill primary">SIEM / Chronicle</span>
+          <span class="skill-pill primary">Network Security</span>
+          <span class="skill-pill">Python Automation</span>
+          <span class="skill-pill">Risk Assessment</span>
+          <span class="skill-pill">Incident Response</span>
+          <span class="skill-pill">Linux Security</span>
+          <span class="skill-pill">SQL for Security</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Proyectos</p>
+      <h2 class="section-title">Trabajo seleccionado</h2>
+      <div class="divider"></div>
+      <p class="section-sub">Proyectos que combinan investigación aplicada con impacto real.</p>
+    </div>
+    <div class="projects-list">
+
+      <!-- Project 1 -->
+      <div class="project-card featured reveal">
+        <div class="project-left">
+          <span class="project-badge badge-cv">Computer Vision · Accesibilidad</span>
+          <h3 class="project-title">Comunicación Sin Barreras</h3>
+          <p class="project-desc">
+            Sistema de traducción de lenguaje de señas en tiempo real que opera completamente en el navegador, sin servidores externos. Detecta y clasifica gestos de mano mediante modelos de visión por computador y los convierte en texto con latencia mínima, garantizando privacidad total del usuario.
+          </p>
+          <div class="project-stack">
+            <span class="skill-pill primary">TensorFlow.js</span>
+            <span class="skill-pill primary">MediaPipe</span>
+            <span class="skill-pill">WebRTC</span>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">Computer Vision</span>
+          </div>
+          <div class="project-links">
+            <a href="https://drive.google.com/drive/folders/1aQpEjUvyoy8yWEHT541kbVJgAdC__C8U?usp=sharing" target="_blank">
+              <span class="project-link">↗ Ver demo</span>
+            </a>
+            <a href="https://github.com/victorMorenoInge/SignX_V2" target="_blank">
+              <span class="project-link">⌥ Repositorio</span>
+            </a>
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="detail-block">
+            <p class="detail-label">Problema</p>
+            <p class="detail-text">Las personas con discapacidad auditiva enfrentan barreras constantes de comunicación. Los sistemas existentes requieren conectividad y servidores externos, creando dependencias y riesgos de privacidad.</p>
+          </div>
+          <div class="detail-block">
+            <p class="detail-label">Arquitectura</p>
+            <p class="detail-text">Pipeline de inferencia on-device: captura de cámara → detección de keypoints con MediaPipe Hands → clasificación de gestos con red neuronal ligera → renderizado de texto en tiempo real.</p>
+          </div>
+          <div class="detail-block">
+            <p class="detail-label">Resultados</p>
+            <div>
+              <span class="impact-metric">✓ Procesamiento en &lt;50ms</span>
+              <span class="impact-metric">✓ 0 datos enviados a servidores</span>
+              <span class="impact-metric">✓ Historial + estadísticas offline</span>
+            </div>
+          </div>
+          <div class="detail-block">
+            <p class="detail-label">Impacto potencial</p>
+            <p class="detail-text">Escalable a kioscos, apps móviles y sistemas educativos. Aplicable en instituciones de salud, atención al cliente y plataformas de aprendizaje inclusivo.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card reveal">
+        <div class="project-left">
+          <span class="project-badge badge-research">Investigación · IA Generativa</span>
+          <h3 class="project-title">Síntesis de Imágenes Médicas con IA Generativa</h3>
+          <p class="project-desc">
+            Investigación comparativa entre Redes Generativas Antagónicas (GANs) y Modelos de Difusión Probabilística (DDPMs) para la generación de imágenes médicas sintéticas. El estudio evalúa calidad, diversidad y utilidad diagnóstica de las imágenes producidas por cada arquitectura.
+          </p>
+          <div class="project-stack">
+            <span class="skill-pill primary">PyTorch</span>
+            <span class="skill-pill primary">GANs</span>
+            <span class="skill-pill primary">DDPMs</span>
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">FID Score</span>
+            <span class="skill-pill">SSIM</span>
+          </div>
+          <div class="project-links">
+  
+            <a href="https://repositorio.unibague.edu.co/entities/publication/9c3d2723-4fff-485e-8017-f845d0b6853a" target="_blank">
+              <span class="project-link">↗ Leer investigación</span>
+            </a>
+            <a href="https://github.com/victorMorenoInge/GeneracionDeImagenesMedicasMedianteAprendizajeDeMaquinas" target="_blank">
+              <span class="project-link">⌥ Repositorio</span>
+            </a>
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="detail-block">
+            <p class="detail-label">Contexto</p>
+            <p class="detail-text">Los datasets médicos son escasos por restricciones de privacidad (HIPAA/GDPR). Los modelos de diagnóstico asistido por IA necesitan datos de entrenamiento que no siempre están disponibles.</p>
+          </div>
+          <div class="detail-block">
+            <p class="detail-label">Metodología</p>
+            <p class="detail-text">Implementación y entrenamiento comparativo de GAN (DCGAN/StyleGAN) vs DDPM sobre datasets de imágenes radiológicas. Evaluación cuantitativa con FID, SSIM e inspección cualitativa por dominio.</p>
+          </div>
+          <div class="detail-block">
+            <p class="detail-label">Hallazgos clave</p>
+            <div>
+              <span class="impact-metric">✓ DDPMs: mayor estabilidad en entrenamiento</span>
+              <span class="impact-metric">✓ GANs: menor costo computacional</span>
+              <span class="impact-metric">✓ Imágenes sintéticas viables para augmentación</span>
+            </div>
+          </div>
+          <div class="detail-block">
+            <p class="detail-label">Aplicación empresarial</p>
+            <p class="detail-text">Hospitales, startups de HealthTech e investigación farmacéutica pueden usar síntesis de datos para acelerar el desarrollo de modelos de diagnóstico sin comprometer privacidad de pacientes.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card reveal">
+        <div class="project-left">
+          <span class="project-badge badge-web">Web · Impacto Social</span>
+          <h3 class="project-title">Ecoturismo Sostenible — Boyacá Histórico</h3>
+          <p class="project-desc">
+            Plataforma web full-stack para promover el ecoturismo sostenible en Boyacá, articulando biodiversidad, patrimonio histórico (Ruta Libertadora) y conservación ambiental en una experiencia digital accesible para turistas nacionales e internacionales.
+          </p>
+          <div class="project-stack">
+            <span class="skill-pill primary">React</span>
+            <span class="skill-pill">Node.js</span>
+            <span class="skill-pill">MongoDB</span>
+            <span class="skill-pill">APIs de Mapas</span>
+            <span class="skill-pill">Responsive Design</span>
+          </div>
+          <div class="project-links">
+            <span class="project-link primary-link">↗ Ver plataforma</span>
+            <a href="https://github.com/victorMorenoInge/EcoturismoSostenibleHistoricoBoyaca" target="_blank">
+              <span class="project-link">⌥ Repositorio</span>
+            </a>
+            
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="detail-block">
+            <p class="detail-label">Problema</p>
+            <p class="detail-text">El turismo en Boyacá carece de una plataforma digital moderna que integre ecosistemas naturales, historia y rutas sostenibles, limitando el acceso de viajeros y el impacto económico regional.</p>
+          </div>
+          <div class="detail-block">
+            <p class="detail-label">Solución técnica</p>
+            <p class="detail-text">Plataforma con mapas interactivos georeferenciados, sistema de rutas personalizadas, contenido educativo sobre biodiversidad y backend de gestión para operadores turísticos locales.</p>
+          </div>
+          <div class="detail-block">
+            <p class="detail-label">Impacto</p>
+            <div>
+              <span class="impact-metric">✓ Difusión digital de patrimonio regional</span>
+              <span class="impact-metric">✓ Apoyo a economía local sostenible</span>
+              <span class="impact-metric">✓ Educación ambiental integrada</span>
+            </div>
+          </div>
+          <div class="detail-block">
+            <p class="detail-label">Demostración de habilidades</p>
+            <p class="detail-text">Arquitectura full-stack, integración de APIs externas, diseño UX/UI orientado a múltiples audiencias, y gestión de proyectos con propósito social.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CERTIFICATIONS ── -->
+<section id="certifications">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Formación</p>
+      <h2 class="section-title">Certificaciones y educación</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="certs-grid reveal">
+      <div class="cert-card featured">
+        <div class="cert-logo" style="background:rgba(66,133,244,.12);font-size:1.8rem">G</div>
+        <div class="cert-body">
+          <p class="cert-issuer">Google · Coursera</p>
+          <p class="cert-name">Google Cybersecurity Professional Certificate</p>
+          <p class="cert-desc">
+            Programa de 8 cursos cubriendo: fundamentos de ciberseguridad, redes, Linux, SQL para análisis de seguridad, herramientas SIEM, respuesta a incidentes y automatización con Python. Equivalente a 6 meses de formación intensiva reconocida por la industria.
+          </p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:rgba(124,58,237,.1);font-size:1.5rem">🎓</div>
+        <div class="cert-body">
+          <p class="cert-issuer">Universidad · Colombia</p>
+          <p class="cert-name">Ingeniería Electrónica</p>
+          <p class="cert-desc">
+            Bases sólidas en sistemas de control, procesamiento de señales, programación embebida, electrónica analógica y digital. Fundamento matemático y lógico para el desarrollo de sistemas complejos de IA y automatización.
+          </p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:rgba(0,212,255,.08);font-size:1.5rem">🤖</div>
+        <div class="cert-body">
+          <p class="cert-issuer">Formación complementaria</p>
+          <p class="cert-name">Deep Learning · Computer Vision · MLOps</p>
+          <p class="cert-desc">
+            Formación autodidacta y cursos especializados en arquitecturas de redes neuronales profundas, visión por computador, modelos generativos (GANs, Diffusion), y despliegue de modelos ML en producción.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Trayectoria</p>
+      <h2 class="section-title">Experiencia profesional</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-date">2025 – 2025</div>
+        <div class="timeline-line"><div class="timeline-dot"></div></div>
+        <div class="timeline-content">
+          <p class="timeline-role">Docente de Tecnología</p>
+          <p class="timeline-org">Colegio Adventista de Ibagué · Colombia</p>
+          <p class="timeline-body">
+            Diseño e implementación de currículos de tecnología y programación. Gestión de 
+            salones de hasta 30 estudiantes, creación de materiales pedagógicos y evaluación 
+            de competencias técnicas. Esta experiencia desarrolló habilidades directamente 
+            transferibles a roles de ingeniería: comunicación de conceptos complejos, 
+            resolución de problemas bajo presión, liderazgo y trabajo colaborativo.
+          </p>
+          <div class="skills-transfer">
+            <span class="skill-pill">Comunicación técnica</span>
+            <span class="skill-pill">Gestión de proyectos</span>
+            <span class="skill-pill">Liderazgo</span>
+            <span class="skill-pill">Diseño curricular</span>
+            <span class="skill-pill">Resolución de problemas</span>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2024 – 2024</div>
+        <div class="timeline-line"><div class="timeline-dot"></div></div>
+        <div class="timeline-content">
+          <p class="timeline-role">Desarrollador en Automatización Agronómica</p>
+          <p class="timeline-org">Proyecto aplicado · Sector agroindustrial</p>
+          <p class="timeline-body">
+            Diseño, desarrollo e implementación de sistemas electrónicos y de programación 
+            para automatización de procesos agrícolas. Integración de sensores, 
+            microcontroladores y lógica de control. Primer contacto profesional con la 
+            intersección hardware-software y con el pensamiento de sistemas.
+          </p>
+          <div class="skills-transfer">
+            <span class="skill-pill">Sistemas embebidos</span>
+            <span class="skill-pill">Automatización</span>
+            <span class="skill-pill">Integración HW/SW</span>
+            <span class="skill-pill">Prototipado</span>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Activo</div>
+        <div class="timeline-line"><div class="timeline-dot" style="background:var(--violet)"></div></div>
+        <div class="timeline-content">
+          <p class="timeline-role">Investigador Independiente en IA</p>
+          <p class="timeline-org">Proyectos personales y académicos</p>
+          <p class="timeline-body">
+            Investigación en modelos generativos (GANs y DDPMs) para imagen médica, 
+            desarrollo de sistemas de Computer Vision accesibles y exploración de 
+            aplicaciones de IA con impacto social. Participación en comunidades técnicas 
+            y aprendizaje continuo de tendencias en ML y ciberseguridad.
+          </p>
+          <div class="skills-transfer">
+            <span class="skill-pill primary">AI Research</span>
+            <span class="skill-pill primary">Computer Vision</span>
+            <span class="skill-pill">Escritura técnica</span>
+            <span class="skill-pill">Aprendizaje autónomo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GITHUB ── -->
+<section id="github">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Open source</p>
+      <h2 class="section-title">GitHub & contribuciones</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="github-grid reveal">
+      <div>
+        <div class="github-card" style="margin-bottom:1.5rem">
+          <p class="section-label" style="margin-bottom:1rem">Repositorios destacados</p>
+          <div class="repo-card">
+            <p class="repo-name">comunicacion-sin-barreras</p>
+            <p class="repo-desc">Real-time hand gesture translator using TensorFlow.js + MediaPipe. Runs entirely in-browser.</p>
+            <div class="repo-meta">
+              <span class="repo-lang"><span class="lang-dot" style="background:#f1e05a"></span>JavaScript</span>
+              <span class="repo-stars">★ Computer Vision</span>
+            </div>
+          </div>
+          <div class="repo-card">
+            <p class="repo-name">medical-image-synthesis</p>
+            <p class="repo-desc">Comparative study: GANs vs DDPMs for synthetic medical image generation. Research-grade implementation.</p>
+            <div class="repo-meta">
+              <span class="repo-lang"><span class="lang-dot" style="background:#3572a5"></span>Python</span>
+              <span class="repo-stars">★ AI Research</span>
+            </div>
+          </div>
+          <div class="repo-card">
+            <p class="repo-name">ecoturismo-boyaca</p>
+            <p class="repo-desc">Full-stack web platform for sustainable ecotourism in Boyacá, Colombia. React + Node.js + MongoDB.</p>
+            <div class="repo-meta">
+              <span class="repo-lang"><span class="lang-dot" style="background:#61dafb"></span>React</span>
+              <span class="repo-stars">★ Full Stack</span>
+            </div>
+          </div>
+        </div>
+        <a href="https://github.com/victorMorenoInge" target="_blank">
+          <button class="btn-secondary" style="width:100%;justify-content:center">Ver todos los repositorios →</button>
+        </a>
+      </div>
+      <div>
+        <div class="github-card" style="margin-bottom:1.5rem">
+          <p class="section-label" style="margin-bottom:1rem">Estadísticas de actividad</p>
+          <div class="gh-stat"><span class="gh-stat-label">Lenguaje principal</span><span class="gh-stat-val">Python</span></div>
+          <div class="gh-stat"><span class="gh-stat-label">Especialidad</span><span class="gh-stat-val">AI / ML</span></div>
+          <div class="gh-stat"><span class="gh-stat-label">Repositorios públicos</span><span class="gh-stat-val">~6+</span></div>
+          <div class="gh-stat"><span class="gh-stat-label">Perfil README</span><span class="gh-stat-val">✓ Activo</span></div>
+        </div>
+        <div class="github-card">
+          <p class="section-label" style="margin-bottom:.8rem">Mapa de contribuciones</p>
+          <div class="contrib-grid" id="contrib-grid"></div>
+          <p style="font-size:.72rem;color:var(--text3);margin-top:.8rem;font-family:var(--mono)">Engineer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner reveal">
+      <p class="section-label" style="display:block;margin:0 auto 1rem">Contacto</p>
+      <h2 class="contact-heading">¿Trabajamos juntos?</h2>
+      <p class="contact-sub">
+        Busco oportunidades como <strong>AI Engineer</strong>, <strong>ML Engineer</strong>, <strong>Software Engineer</strong> 
+        o <strong>Cybersecurity Analyst</strong> — en Bogotá, Medellín o remoto internacional. 
+        Si tienes un proyecto o una posición que crees que encaja, escríbeme.
+      </p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:inge.victor.moreno.2003@gmail.com">
+          <span class="icon">✉</span> inge.victor.moreno.2003@gmail.com
+        </a>
+        <a class="contact-link" href="https://www.linkedin.com/in/ingevictormoreno2003/" target="_blank">
+          <span class="icon">in</span> LinkedIn
+        </a>
+        <a class="contact-link" href="https://github.com/victorMorenoInge" target="_blank">
+          <span class="icon">⌥</span> GitHub
+        </a>
+        <a href="https://drive.google.com/file/d/1pd13ml-unfagtj6S6K39kkri2dE6cCCE/view?usp=sharing" target="_blank"><button class="btn-secondary">⬇ Descargar CV</button></a>
+      </div>
+      <div class="availability">
+        <div class="status-dot"></div>
+        Disponible para entrevistas — Respondo en menos de 24h
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>Victor Andrés Moreno Sierra · AI & Software Engineer · Colombia · 2025</p>
+  <p style="margin-top:.4rem">Diseñado con precisión. Construido con propósito.</p>
+</footer>
+
+<script>
+/* ── NEURAL MESH CANVAS ── */
+const canvas=document.getElementById('hero-canvas');
+const ctx=canvas.getContext('2d');
+let nodes=[];
+let W,H;
+
+function resize(){
+  W=canvas.width=window.innerWidth;
+  H=canvas.height=window.innerHeight;
+  initNodes();
+}
+
+function initNodes(){
+  nodes=[];
+  const count=Math.floor(W*H/14000);
+  for(let i=0;i<count;i++){
+    nodes.push({
+      x:Math.random()*W,
+      y:Math.random()*H,
+      vx:(Math.random()-.5)*.3,
+      vy:(Math.random()-.5)*.3,
+      r:Math.random()*2+1
+    });
+  }
+}
+
+let mouse={x:W/2,y:H/2};
+window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY});
+
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  for(let n of nodes){
+    n.x+=n.vx;n.y+=n.vy;
+    if(n.x<0||n.x>W)n.vx*=-1;
+    if(n.y<0||n.y>H)n.vy*=-1;
+    const dx=mouse.x-n.x,dy=mouse.y-n.y;
+    const dist=Math.sqrt(dx*dx+dy*dy);
+    if(dist<120){n.x-=dx*.005;n.y-=dy*.005}
+    ctx.beginPath();
+    ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+    ctx.fillStyle='rgba(0,212,255,.6)';
+    ctx.fill();
+  }
+  for(let i=0;i<nodes.length;i++){
+    for(let j=i+1;j<nodes.length;j++){
+      const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      if(d<120){
+        ctx.beginPath();
+        ctx.moveTo(nodes[i].x,nodes[i].y);
+        ctx.lineTo(nodes[j].x,nodes[j].y);
+        ctx.strokeStyle=`rgba(0,212,255,${(1-d/120)*.25})`;
+        ctx.lineWidth=.8;
+        ctx.stroke();
+      }
+    }
+  }
+  requestAnimationFrame(draw);
+}
+
+resize();
+window.addEventListener('resize',resize);
+draw();
+
+/* ── CONTRIBUTION GRID ── */
+const grid=document.getElementById('contrib-grid');
+const levels=['','l1','l2','l3','l4'];
+for(let i=0;i<364;i++){
+  const cell=document.createElement('div');
+  const rand=Math.random();
+  let cls='contrib-cell';
+  if(rand>.85)cls+=' l4';
+  else if(rand>.7)cls+=' l3';
+  else if(rand>.5)cls+=' l2';
+  else if(rand>.35)cls+=' l1';
+  cell.className=cls;
+  grid.appendChild(cell);
+}
+
+/* ── SCROLL REVEAL ── */
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible')}
+  });
+},{threshold:.12});
+reveals.forEach(r=>observer.observe(r));
+
+/* ── SMOOTH ACTIVE NAV ── */
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(s=>{
+    if(window.scrollY>=s.offsetTop-100)current=s.id;
+  });
+  navLinks.forEach(a=>{
+    a.style.color=a.getAttribute('href')==='#'+current?'var(--cyan)':'';
+  });
+},{passive:true});
+</script>
+</body>
+</html>
